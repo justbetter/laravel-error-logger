@@ -61,6 +61,7 @@ use JustBetter\LaravelErrorLogger\Models\Error;
 Error::log()
     ->withGroup('Magento')
     ->withMessage('Something went wrong!')
+    ->withDetails('Extra information of this log!')
     ->withThrowable($exception)
     ->withChannel('slack')
     ->save();

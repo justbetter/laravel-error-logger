@@ -52,6 +52,13 @@ class Error extends Model
         return $this;
     }
 
+    public function withDetails(string $details = null): self
+    {
+        $this->details = $details;
+
+        return $this;
+    }
+
     public function withThrowable(Throwable $throwable = null): self
     {
         if ($throwable) {
