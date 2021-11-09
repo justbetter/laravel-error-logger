@@ -3,6 +3,7 @@
 namespace JustBetter\LaravelErrorLogger\Models;
 
 use Carbon\Carbon;
+use JustBetter\LaravelErrorLogger\Traits\CanTruncate;
 use Throwable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -12,7 +13,7 @@ use Illuminate\Support\Str;
 
 class Error extends Model
 {
-    use HasFactory;
+    use HasFactory, CanTruncate;
 
     protected $table = 'laravel_errors';
 
@@ -22,9 +23,20 @@ class Error extends Model
         'created_at' => 'datetime',
     ];
 
-    protected $data = [];
+    protected array $truncate = [
+        'details' => 'text',
+        'trace' => 'text',
+        'vendor_trace' => 'text',
+    ];
 
-    public static function booted()
+    public function __set($key, $value)
+    {
+        $this->$key = $this->canTruncate($key)
+            ? $this->truncateValue($key, $value)
+            : $value;
+    }
+
+    public static function booted(): void
     {
         static::created(function (self $error): void {
             if ($error->channel) {
@@ -52,11 +64,26 @@ class Error extends Model
         return $this;
     }
 
+    public function withCode(string $code = null): self
+    {
+        $this->code = $code;
+
+        return $this;
+    }
+
     public function withDetails(string $details = null): self
     {
         $this->details = $details;
 
         return $this;
+    }
+
+    public function fromThrowable(Throwable $throwable): self
+    {
+        return $this
+            ->withMessage($throwable->getMessage())
+            ->withCode($throwable->getCode())
+            ->withThrowable($throwable);
     }
 
     public function withThrowable(Throwable $throwable = null): self
@@ -77,13 +104,6 @@ class Error extends Model
             $this->vendor_trace = null;
             $this->trace = null;
 
-        }
-
-        if (strlen($this->vendor_trace) > 65535) {
-            $this->vendor_trace = substr($this->vendor_trace, 0, 65535);
-        }
-        if (strlen($this->trace) > 65535) {
-            $this->trace = substr($this->trace, 0, 65535);
         }
 
         return $this;
