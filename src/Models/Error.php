@@ -92,7 +92,7 @@ class Error extends Model
 
             $vendorTrace = $throwable->getTrace();
             $trace = collect($vendorTrace)
-                ->filter(fn(array $step): bool => !Str::contains($step['file'], '/vendor/'))
+                ->filter(fn(array $step): bool => !isset($step['file']) || !Str::contains($step['file'], '/vendor/'))
                 ->values()
                 ->toArray();
 
