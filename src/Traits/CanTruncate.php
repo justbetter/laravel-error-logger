@@ -6,8 +6,6 @@ use JustBetter\LaravelErrorLogger\Exceptions\TruncateException;
 
 trait CanTruncate
 {
-    protected array $truncate = [];
-
     protected function canTruncate(string $key): bool
     {
         return isset($this->truncate[$key]);
