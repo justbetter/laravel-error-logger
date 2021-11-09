@@ -31,9 +31,11 @@ class Error extends Model
 
     public function __set($key, $value)
     {
-        $this->$key = $this->canTruncate($key)
+        $newValue = $this->canTruncate($key)
             ? $this->truncateValue($key, $value)
             : $value;
+
+        parent::__set($key, $newValue);
     }
 
     public static function booted(): void
