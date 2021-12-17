@@ -3,6 +3,7 @@
 namespace JustBetter\LaravelErrorLogger;
 
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
+use JustBetter\LaravelErrorLogger\Console\Commands\PruneCommand;
 
 class ServiceProvider extends BaseServiceProvider
 {
@@ -10,6 +11,7 @@ class ServiceProvider extends BaseServiceProvider
     {
         $this
             ->bootConfig()
+            ->bootCommands()
             ->bootMigrations()
             ->bootTranslations();
     }
@@ -23,6 +25,17 @@ class ServiceProvider extends BaseServiceProvider
         return $this;
     }
 
+    protected function bootCommands(): self
+    {
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                PruneCommand::class,
+            ]);
+        }
+
+        return $this;
+    }
+
     protected function bootMigrations(): self
     {
         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
@@ -30,7 +43,7 @@ class ServiceProvider extends BaseServiceProvider
         return $this;
     }
 
-    protected function bootTranslations()
+    protected function bootTranslations(): self
     {
         $this->loadTranslationsFrom(__DIR__ . '/../resources/lang', 'laravel-error-logger');
 
