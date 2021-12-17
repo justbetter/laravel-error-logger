@@ -49,6 +49,17 @@ Add the following variable to your `.env` to define the logging channel for dail
 LARAVEL_ERROR_NOTIFICATION_CHANNEL=slack
 ```
 
+## Commands
+
+The logging table can build up pretty fast. In order to prune older records, you can use the following command:
+
+```shell
+php artisan laravel-error-logger:prune --all
+php artisan laravel-error-logger:prune --hours=720
+```
+
+To automatically prune the logs, you may want to add the command to your scheduler.
+
 ## Example usage
 
 > **IMPORTANT!** When using the method `withChannel` it will directly send a notification when saved.
