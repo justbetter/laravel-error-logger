@@ -4,7 +4,7 @@ This packages contains a nice and easy way to log errors that happen in your app
 scheduler in order to receive daily notifications about reported errors via e.g. Slack.
 
 Support for Laravel Nova is also available to view a list of reported errors with
-the `justbetter/laravel-error-logger-nova` package.
+the `justbetter/nova-error-logger` package.
 
 Please note that this package won't automatically save exceptions thrown by Laravel or PHP - you have to manually save
 them like the example shown later in this documentation.
