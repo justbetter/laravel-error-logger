@@ -1,6 +1,6 @@
 <?php
 
-namespace JustBetter\LaravelErrorLogger\Traits;
+namespace JustBetter\LaravelErrorLogger\Concerns;
 
 use JustBetter\LaravelErrorLogger\Exceptions\TruncateException;
 
@@ -11,7 +11,7 @@ trait CanTruncate
         return isset($this->truncate[$key]);
     }
 
-    protected function truncateValue(string $key, $value = null)
+    protected function truncateValue(string $key, mixed $value = null): mixed
     {
         $function = 'truncate' . ucfirst($this->truncate[$key]);
 
@@ -22,7 +22,7 @@ trait CanTruncate
         return $this->$function($value);
     }
 
-    protected function truncateText($value = null, int $size = 65535)
+    protected function truncateText($value = null, int $size = 65535): ?string
     {
         if (is_null($value)) {
             return null;

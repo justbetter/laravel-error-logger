@@ -13,7 +13,10 @@ use JustBetter\LaravelErrorLogger\Models\Error;
 
 class ErrorNotificationJob implements ShouldQueue, ShouldBeUnique
 {
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+    use Dispatchable;
+    use InteractsWithQueue;
+    use Queueable;
+    use SerializesModels;
 
     public function handle(): void
     {
@@ -25,7 +28,8 @@ class ErrorNotificationJob implements ShouldQueue, ShouldBeUnique
 
         $message = trans_choice('laravel-error-logger::messages.notification', $count, ['value' => $count]);
 
-        $channel = (string)config('laravel-error-logger.notification.channel');
+        /** @var string $channel */
+        $channel = config('laravel-error-logger.notification.channel');
 
         if (strlen($channel) > 0) {
             Log::channel($channel)->info($message);
