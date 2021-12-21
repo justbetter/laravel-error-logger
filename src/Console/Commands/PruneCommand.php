@@ -1,10 +1,10 @@
 <?php
 
-namespace JustBetter\LaravelErrorLogger\Console\Commands;
+namespace JustBetter\ErrorLogger\Console\Commands;
 
 use Carbon\Carbon;
 use Illuminate\Console\Command;
-use JustBetter\LaravelErrorLogger\Jobs\PruneJob;
+use JustBetter\ErrorLogger\Jobs\PruneJob;
 
 class PruneCommand extends Command
 {

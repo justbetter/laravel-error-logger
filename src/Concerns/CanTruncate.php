@@ -1,8 +1,8 @@
 <?php
 
-namespace JustBetter\LaravelErrorLogger\Concerns;
+namespace JustBetter\ErrorLogger\Concerns;
 
-use JustBetter\LaravelErrorLogger\Exceptions\TruncateException;
+use JustBetter\ErrorLogger\Exceptions\TruncateException;
 
 trait CanTruncate
 {

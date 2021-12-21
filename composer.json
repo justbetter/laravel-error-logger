@@ -1,5 +1,5 @@
 {
-  "name": "just-better/laravel-error-logger",
+  "name": "justbetter/laravel-error-logger",
   "description": "Simple way to log errors with Laravel Nova support.",
   "require": {
     "php": "^8.0",
@@ -17,7 +17,7 @@
   "type": "laravel-package",
   "autoload": {
     "psr-4": {
-      "JustBetter\\LaravelErrorLogger\\": "src"
+      "JustBetter\\ErrorLogger\\": "src"
     }
   },
   "config": {
@@ -26,7 +26,7 @@
   "extra": {
     "laravel": {
       "providers": [
-        "JustBetter\\LaravelErrorLogger\\ServiceProvider"
+        "JustBetter\\ErrorLogger\\ServiceProvider"
       ]
     }
   },

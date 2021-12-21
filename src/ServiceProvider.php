@@ -1,9 +1,9 @@
 <?php
 
-namespace JustBetter\LaravelErrorLogger;
+namespace JustBetter\ErrorLogger;
 
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
-use JustBetter\LaravelErrorLogger\Console\Commands\PruneCommand;
+use JustBetter\ErrorLogger\Console\Commands\PruneCommand;
 
 class ServiceProvider extends BaseServiceProvider
 {

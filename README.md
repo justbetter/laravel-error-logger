@@ -4,7 +4,7 @@ This packages contains a nice and easy way to log errors that happen in your app
 scheduler in order to receive daily notifications about reported errors via e.g. Slack.
 
 Support for Laravel Nova is also available to view a list of reported errors with
-the `just-better/laravel-nova-error-logger` package.
+the `justbetter/laravel-error-logger-nova` package.
 
 Please note that this package won't automatically save exceptions thrown by Laravel or PHP - you have to manually save
 them like the example shown later in this documentation.
@@ -18,7 +18,7 @@ In order to make use of the package the following actions are required.
 Publish the configuration of the package.
 
 ```shell
-php artisan vendor:publish --provider="JustBetter\LaravelErrorLogger\ServiceProvider"
+php artisan vendor:publish --provider="JustBetter\ErrorLogger\ServiceProvider"
 ```
 
 ### Migrations
@@ -36,7 +36,7 @@ php artisan migrate
 In your `App\Console\Kernel.php` you can add the daily error notification job like so:
 
 ```php
-use JustBetter\LaravelErrorLogger\Jobs\ErrorNotificationJob;
+use JustBetter\ErrorLogger\Jobs\ErrorNotificationJob;
 
 $schedule->job(ErrorNotificationJob::class)->dailyAt('09:00');
 ```
@@ -67,7 +67,7 @@ To automatically prune the logs, you may want to add the command to your schedul
 The error class can be easily used. No value is required to be set in order to save the log.
 
 ```php
-use JustBetter\LaravelErrorLogger\Models\Error;
+use JustBetter\ErrorLogger\Models\Error;
 
 Error::log()
     ->withGroup('Magento')

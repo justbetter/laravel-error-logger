@@ -1,6 +1,6 @@
 <?php
 
-namespace JustBetter\LaravelErrorLogger\Exceptions;
+namespace JustBetter\ErrorLogger\Exceptions;
 
 use Exception;
 

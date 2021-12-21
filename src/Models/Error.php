@@ -1,9 +1,9 @@
 <?php
 
-namespace JustBetter\LaravelErrorLogger\Models;
+namespace JustBetter\ErrorLogger\Models;
 
 use Carbon\Carbon;
-use JustBetter\LaravelErrorLogger\Concerns\CanTruncate;
+use JustBetter\ErrorLogger\Concerns\CanTruncate;
 use Throwable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;

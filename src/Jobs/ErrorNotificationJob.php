@@ -1,6 +1,6 @@
 <?php
 
-namespace JustBetter\LaravelErrorLogger\Jobs;
+namespace JustBetter\ErrorLogger\Jobs;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
@@ -9,7 +9,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Log;
-use JustBetter\LaravelErrorLogger\Models\Error;
+use JustBetter\ErrorLogger\Models\Error;
 
 class ErrorNotificationJob implements ShouldQueue, ShouldBeUnique
 {
