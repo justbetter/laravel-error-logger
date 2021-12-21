@@ -7,6 +7,13 @@
     "nesbot/carbon": "*",
     "ext-json": "*"
   },
+  "authors": [
+    {
+      "name": "Ramon Rietdijk",
+      "email": "ramon@justbetter.nl",
+      "role": "Developer"
+    }
+  ],
   "type": "laravel-package",
   "autoload": {
     "psr-4": {
