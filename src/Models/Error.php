@@ -3,17 +3,25 @@
 namespace JustBetter\LaravelErrorLogger\Models;
 
 use Carbon\Carbon;
-use JustBetter\LaravelErrorLogger\Traits\CanTruncate;
+use JustBetter\LaravelErrorLogger\Concerns\CanTruncate;
 use Throwable;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 
+/**
+ * @property ?string $group
+ * @property ?string $message
+ * @property ?string $code
+ * @property ?string $details
+ * @property ?string $trace
+ * @property ?string $vendor_trace
+ * @property ?string $channel
+ */
 class Error extends Model
 {
-    use HasFactory, CanTruncate;
+    use CanTruncate;
 
     protected $table = 'laravel_errors';
 

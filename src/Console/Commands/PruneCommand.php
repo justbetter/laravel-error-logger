@@ -27,7 +27,7 @@ class PruneCommand extends Command
 
         $carbon = $all
             ? null
-            : Carbon::now()->subHours($hours);
+            : Carbon::now()->subHours((int)$hours);
 
         PruneJob::dispatch($carbon);
 
