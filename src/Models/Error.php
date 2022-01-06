@@ -18,6 +18,8 @@ use Illuminate\Support\Str;
  * @property ?string $trace
  * @property ?string $vendor_trace
  * @property ?string $channel
+ * @property ?string $model
+ * @property ?int $model_id
  */
 class Error extends Model
 {
@@ -122,6 +124,14 @@ class Error extends Model
     public function withChannel(string $channel = null): self
     {
         $this->channel = $channel;
+
+        return $this;
+    }
+
+    public function withModel(Model $model): self
+    {
+        $this->model = get_class($model);
+        $this->model_id = $model->id;
 
         return $this;
     }
