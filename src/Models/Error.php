@@ -18,7 +18,7 @@ use Illuminate\Support\Str;
  * @property ?string $trace
  * @property ?string $vendor_trace
  * @property ?string $channel
- * @property ?string $model
+ * @property ?string $model_type
  * @property ?int $model_id
  */
 class Error extends Model
@@ -83,9 +83,11 @@ class Error extends Model
         return $this;
     }
 
-    public function withDetails(string $details = null): self
+    public function withDetails(string|array $details = null): self
     {
-        $this->details = $details;
+        $this->details = is_string($details)
+            ? $details
+            : json_encode($details, JSON_PRETTY_PRINT);
 
         return $this;
     }
@@ -93,7 +95,7 @@ class Error extends Model
     public function fromThrowable(Throwable $throwable): self
     {
         return $this
-            ->withMessage($throwable->getMessage())
+            ->withDetails($throwable->getMessage())
             ->withCode($throwable->getCode())
             ->withThrowable($throwable);
     }
@@ -130,7 +132,7 @@ class Error extends Model
 
     public function withModel(Model $model): self
     {
-        $this->model = get_class($model);
+        $this->model_type = get_class($model);
         $this->model_id = $model->id;
 
         return $this;
