@@ -75,8 +75,19 @@ Error::log()
     ->withDetails('Extra information of this log!')
     ->withThrowable($exception)
     ->withChannel('slack')
+    ->withModel($model)
     ->save();
 ```
+
+### Method FromThrowable
+
+You may also use the method `fromThrowable`. This function accepts a `Throwable` which automatically sets the following
+extra attributes compared to `withThrowable`:
+
+- withDetails
+- withCode
+
+It is still possible to override these values when chaining them after the throwable.
 
 ## License
 
