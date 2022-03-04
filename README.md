@@ -89,6 +89,15 @@ extra attributes compared to `withThrowable`:
 
 It is still possible to override these values when chaining them after the throwable.
 
+### Grouping
+
+Errors will be automatically grouped. In the config you can set an interval for this.
+If you don't want to group you can call `dontGroup()`.
+
+### Hiding from index
+
+You can hide errors from the index by calling `hideFromIndex()`.
+
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
