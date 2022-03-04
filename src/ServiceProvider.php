@@ -7,6 +7,11 @@ use JustBetter\ErrorLogger\Console\Commands\PruneCommand;
 
 class ServiceProvider extends BaseServiceProvider
 {
+    public function register()
+    {
+        $this->app->register(EventServiceProvider::class);
+    }
+    
     public function boot(): void
     {
         $this

@@ -3,7 +3,9 @@
 namespace JustBetter\ErrorLogger\Models;
 
 use Carbon\Carbon;
+use JustBetter\ErrorLogger\Listeners\IncrementExistingError;
 use JustBetter\ErrorLogger\Concerns\CanTruncate;
+use JustBetter\ErrorLogger\Events\BeforeErrorCreate;
 use Throwable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
@@ -25,18 +27,25 @@ class Error extends Model
 {
     use CanTruncate;
 
+    public bool $dontGroup = false;
+
     protected $table = 'laravel_errors';
 
     protected $guarded = [];
 
     protected $casts = [
         'created_at' => 'datetime',
+        'group_values' => 'array'
     ];
 
     protected array $truncate = [
         'details' => 'text',
         'trace' => 'text',
         'vendor_trace' => 'text',
+    ];
+
+    protected $dispatchesEvents = [
+        'creating' => BeforeErrorCreate::class
     ];
 
     public function __set($key, $value)
@@ -141,6 +150,20 @@ class Error extends Model
     public function hasTrace(): bool
     {
         return $this->trace !== null;
+    }
+
+    public function dontGroup(): self
+    {
+        $this->dontGroup = true;
+
+        return $this;
+    }
+
+    public function hideFromIndex(): self
+    {
+        $this->show_on_index = false;
+
+        return $this;
     }
 
     public function scopeYesterday(Builder $query): Builder
