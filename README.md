@@ -98,6 +98,12 @@ If you don't want to group you can call `dontGroup()`.
 
 You can hide errors from the index by calling `hideFromIndex()`.
 
+
+## Model relation
+
+When using the `withModel` method you can retrieve errors for a specific model.
+The `\JustBetter\ErrorLogger\Traits\HasErrors` trait conains this relation with the name `errors()`
+
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
