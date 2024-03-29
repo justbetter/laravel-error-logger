@@ -1,6 +1,22 @@
 # Changelog 
 
-[Unreleased changes](https://github.com/justbetter/laravel-error-logger/compare/2.2.2...main)
+[Unreleased changes](https://github.com/justbetter/laravel-error-logger/compare/2.4.0...main)
+## [2.4.0](https://github.com/justbetter/laravel-error-logger/releases/tag/2.4.0) - 2024-03-29
+
+### What's Changed
+* Support Laravel 11 by @VincentBean in https://github.com/justbetter/laravel-error-logger/pull/7
+
+
+**Full Changelog**: https://github.com/justbetter/laravel-error-logger/compare/2.3.0...2.4.0
+
+## [2.3.0](https://github.com/justbetter/laravel-error-logger/releases/tag/2.3.0) - 2023-03-10
+
+### What's Changed
+* Added support for Laravel 10 by @ramonrietdijk in https://github.com/justbetter/laravel-error-logger/pull/6
+
+
+**Full Changelog**: https://github.com/justbetter/laravel-error-logger/compare/2.2.2...2.3.0
+
 ## [2.2.2](https://github.com/justbetter/laravel-error-logger/releases/tag/2.2.2) - 2022-03-18
 
 ### What's Changed
