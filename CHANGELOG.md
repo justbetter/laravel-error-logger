@@ -1,6 +1,12 @@
 # Changelog 
 
-[Unreleased changes](https://github.com/justbetter/laravel-error-logger/compare/2.4.0...main)
+[Unreleased changes](https://github.com/justbetter/laravel-error-logger/compare/2.4.1...2.4.1)
+## [2.4.1](https://github.com/justbetter/laravel-error-logger/releases/tag/2.4.1) - 2024-07-01
+
+Update changelog action
+
+**Full Changelog**: https://github.com/justbetter/laravel-error-logger/compare/2.4.0...2.4.1
+
 ## [2.4.0](https://github.com/justbetter/laravel-error-logger/releases/tag/2.4.0) - 2024-03-29
 
 ### What's Changed
