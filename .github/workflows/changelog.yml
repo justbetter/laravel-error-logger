@@ -5,7 +5,7 @@ on:
     types: [ published, edited, deleted ]
 
 jobs:
-  update:
+  generate:
     runs-on: ubuntu-latest
 
     steps:
@@ -20,7 +20,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           repository: ${{ github.repository }}
-          sha: ${{ github.ref_name }}
 
       - name: Commit CHANGELOG
         uses: stefanzweifel/git-auto-commit-action@v4
