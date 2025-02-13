@@ -1,6 +1,14 @@
 # Changelog 
 
-[Unreleased changes](https://github.com/justbetter/laravel-error-logger/compare/2.4.2...2.4.2)
+[Unreleased changes](https://github.com/justbetter/laravel-error-logger/compare/2.5.0...main)
+## [2.5.0](https://github.com/justbetter/laravel-error-logger/releases/tag/2.5.0) - 2025-02-13
+
+### What's Changed
+* Laravel 12 support by @VincentBean in https://github.com/justbetter/laravel-error-logger/pull/8
+
+
+**Full Changelog**: https://github.com/justbetter/laravel-error-logger/compare/2.4.2...2.5.0
+
 ## [2.4.2](https://github.com/justbetter/laravel-error-logger/releases/tag/2.4.2) - 2024-07-01
 
 Update changelog action
