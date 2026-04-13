@@ -1,6 +1,10 @@
 # Changelog 
 
-[Unreleased changes](https://github.com/justbetter/laravel-error-logger/compare/2.5.0...main)
+[Unreleased changes](https://github.com/justbetter/laravel-error-logger/compare/2.6.0...main)
+## [2.6.0](https://github.com/justbetter/laravel-error-logger/releases/tag/2.6.0) - 2026-04-13
+
+**Full Changelog**: https://github.com/justbetter/laravel-error-logger/compare/2.5.0...2.6.0
+
 ## [2.5.0](https://github.com/justbetter/laravel-error-logger/releases/tag/2.5.0) - 2025-02-13
 
 ### What's Changed
